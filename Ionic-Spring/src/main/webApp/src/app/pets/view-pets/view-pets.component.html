@@ -1,0 +1,64 @@
+
+<ion-card color="tertiary">
+	<ion-card-header>
+      <ion-card-title>A List Of Pets</ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+	</ion-card-header>
+	<ion-card-content>
+	
+	<ion-grid [fixed]="true" >
+  		<ion-row class="table-header">
+   			<ion-col><h1>Name</h1></ion-col>
+        	<ion-col><h1>Species</h1></ion-col>
+    		<ion-col><h1>Description</h1></ion-col>
+    		<ion-col><h1></h1></ion-col>
+  		</ion-row>
+  		
+  		<ion-row *ngFor="let pet of pets;">
+  			<ion-col>{{pet.name}}</ion-col>
+  			<ion-col>{{pet.species}}</ion-col>
+  			<ion-col>{{pet.description}}</ion-col>
+  			<ion-col>
+  				<ion-button (click)="RemovePet(pet.id)" color="danger">
+  					<ion-icon name="trash"></ion-icon>
+  					{{pet.id}}
+				</ion-button>
+			</ion-col>
+  		</ion-row>
+	</ion-grid>
+
+	
+
+</ion-card-content>
+</ion-card>
+
+
+
+<br><br>
+
+<ion-list>
+
+  
+  <ion-item>
+    <ion-input  placeholder="Enter Pet Name" [(ngModel)]="addName"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-input  placeholder="Enter Species" [(ngModel)]="addSpecies"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-input  placeholder="Description Of Pet" [(ngModel)]="addDescription"></ion-input>
+  </ion-item>
+  
+  	<ion-button (click)="onPetAdd()" color="danger">
+  		<ion-icon name="add"></ion-icon>
+ 		Add Pet
+	</ion-button>
+  
+  
+</ion-list>
+
+
+
+
